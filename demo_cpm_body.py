@@ -1,5 +1,5 @@
 import tensorflow as tf
-from models.nets import *
+from models.nets import cpm_body
 import numpy as np
 from utils import cpm_utils
 import cv2
@@ -11,7 +11,7 @@ import sys
 """
 FLAGS = tf.app.flags.FLAGS
 tf.app.flags.DEFINE_string('DEMO_TYPE',
-                           default_value='MULTI',
+                           default_value='D:/github/convolutional-pose-machines-tensorflow/test_imgs/roger.png',
                            docstring='MULTI: show multiple stage,'
                                      'SINGLE: only last stage,'
                                      'HM: show last stage heatmap,'
@@ -73,7 +73,7 @@ else:
 
 
 def main(argv):
-    tf_device = '/gpu:0'
+    tf_device = '/cpu:0'
     with tf.device(tf_device):
         """Build graph
         """
